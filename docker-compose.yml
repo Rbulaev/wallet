@@ -5,7 +5,7 @@ services:
     container_name: wallet_microservice
     build:
       context: ./
-      dockerfile: build/Dockerfile
+      dockerfile: build/wallet/Dockerfile
     ports:
       - "8080:8080"
 #      - "5555:5555"
