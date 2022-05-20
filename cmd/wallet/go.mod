@@ -1,4 +1,4 @@
-module github.com/aftemark/wallet
+module wallet
 
 go 1.18
 

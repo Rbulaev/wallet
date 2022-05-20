@@ -1,19 +1,17 @@
-FROM golang:1.18-alpine as builder
+FROM golang:1.18-alpine
 
-WORKDIR /app
+WORKDIR /wallet
 
-COPY internal pkg ./
-COPY go.mod go.sum ./
-COPY cmd/wallet .
-#COPY cmd/wallet/wallet.go ./wallet.go
-#COPY cmd/test ./
+COPY pkg /wallet/pkg
+COPY internal /wallet/internal
+COPY cmd/wallet/go.mod cmd/wallet/go.sum cmd/wallet/main.go ./
+#COPY cmd/test/go.mod cmd/test/go.sum cmd/test/main.go ./
 
-#RUN go mod download && go mod verify
+RUN go mod download && go mod verify
 
-RUN go build -o /wallet
-#RUN go build -o /test
+#RUN go build -o wallet
+RUN go build -o /wallet/app
 
-EXPOSE 8080
+#EXPOSE 8080
 
-CMD ["/wallet"]
-#CMD ["/test"]
+CMD ["/wallet/app"]

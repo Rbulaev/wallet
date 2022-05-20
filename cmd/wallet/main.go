@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/aftemark/wallet/internal/binding"
-	"github.com/aftemark/wallet/pkg/rabbitmq"
+	"wallet/internal/binding"
+	"wallet/pkg/rabbitmq"
 
 	"github.com/labstack/echo/v4"
 	"github.com/streadway/amqp"
