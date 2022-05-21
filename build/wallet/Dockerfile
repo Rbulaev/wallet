@@ -4,14 +4,14 @@ WORKDIR /wallet
 
 COPY pkg /wallet/pkg
 COPY internal /wallet/internal
-COPY cmd/wallet/go.mod cmd/wallet/go.sum cmd/wallet/main.go ./
-#COPY cmd/test/go.mod cmd/test/go.sum cmd/test/main.go ./
+COPY cmd/wallet/main.go ./
 
+RUN go mod init wallet
+RUN go mod tidy
 RUN go mod download && go mod verify
 
-#RUN go build -o wallet
 RUN go build -o /wallet/app
 
-#EXPOSE 8080
+EXPOSE 8080
 
 CMD ["/wallet/app"]
